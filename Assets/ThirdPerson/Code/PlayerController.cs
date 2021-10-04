@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private float groundAcceleration = 5.0f;
     [SerializeField] private float groundDeceleration = 25.0f;
     
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
+        float turnAmount = direction.x;
         float fDirection = direction.y;
         
         if (direction.sqrMagnitude > 1)
@@ -50,5 +52,7 @@ public class PlayerController : MonoBehaviour
 
         _forwardSpeed = Mathf.MoveTowards(_forwardSpeed, _desiredSpeed, acceleration * Time.deltaTime);
         _anim.SetFloat(_forwardSpeedHash, _forwardSpeed);
+        
+        transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
     }
 }
