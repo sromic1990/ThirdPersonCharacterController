@@ -336,6 +336,8 @@ MonoBehaviour:
   turnSpeed: 100
   groundAcceleration: 5
   groundDeceleration: 25
+  jumpSpeed: 30000
+  groundRayDist: 1.25
 --- !u!54 &829766266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -363,7 +365,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.16
-  m_Height: 1.34
+  m_Height: 1.28
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!1 &570532112682358154
