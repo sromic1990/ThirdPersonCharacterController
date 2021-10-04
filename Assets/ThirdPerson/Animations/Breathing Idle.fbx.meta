@@ -48,8 +48,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -522,18 +522,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: eve_j_gonzales(Clone)
+    - name: Eve(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Mesh
-      parentName: eve_j_gonzales(Clone)
+      parentName: Eve(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
-      parentName: eve_j_gonzales(Clone)
+      parentName: Eve(Clone)
       position: {x: 0.00088099285, y: 0.81040543, z: 0.009751721}
       rotation: {x: 4.5591885e-20, y: -0.0000000010039103, z: 0.000000031871284, w: 1}
       scale: {x: 1, y: 1, z: 1}

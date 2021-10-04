@@ -1,13 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2;
+    [SerializeField] private float moveSpeed = 2.0f;
+    [SerializeField] private float maxForwardSpeed = 8.0f;
+    [SerializeField] private float groundAcceleration = 5.0f;
+    [SerializeField] private float groundDeceleration = 25.0f;
+    
     private Vector2 _moveDirection;
+    private float _desiredForwardSpeed;
+    private float _forwardSpeed;
+
+    private Animator _anim;
+    private readonly int _forwardSpeedHash = Animator.StringToHash("ForwardSpeed");
+    private bool _isMoveInput => !Mathf.Approximately(_moveDirection.sqrMagnitude, 0f);
+
+    private void Awake()
+    {
+        _anim = GetComponent<Animator>();
+    }
+    
+    private void Start()
+    {
+        
+    }
+    
+    private void Update()
+    {
+        Move(_moveDirection);
+    }
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
@@ -15,18 +38,17 @@ public class PlayerController : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        transform.Translate(direction.x * moveSpeed * Time.deltaTime, 0, direction.y * moveSpeed * Time.deltaTime);
-    }
+        if (direction.sqrMagnitude > 1)
+        {
+            direction.Normalize();
+        }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        _desiredForwardSpeed = direction.magnitude * maxForwardSpeed;
+        float acceleration = _isMoveInput ? groundAcceleration : groundDeceleration;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Move(_moveDirection);
+        _forwardSpeed = Mathf.MoveTowards(_forwardSpeed, _desiredForwardSpeed, acceleration * Time.deltaTime);
+        _anim.SetFloat(_forwardSpeedHash, _forwardSpeed);
+
+        // transform.Translate(direction.x * moveSpeed * Time.deltaTime, 0, direction.y * moveSpeed * Time.deltaTime);
     }
 }
