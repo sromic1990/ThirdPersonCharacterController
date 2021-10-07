@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 829766266}
   - component: {fileID: 829766267}
   - component: {fileID: 1796360154}
+  - component: {fileID: 1249040172}
   m_Layer: 8
   m_Name: Prefab_Eve
   m_TagString: Untagged
@@ -240,6 +241,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 829766262}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -253,14 +255,27 @@ MonoBehaviour:
     m_ActionId: d82e35a8-63f2-46d9-aedd-abccd7ea21ad
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1249040172}
+        m_TargetAssemblyTypeName: ThirdPerson.Code.PlayerLookController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bf79384f-be15-40db-a3fd-6ef0f4165ef6
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1796360154}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnFire
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -314,6 +329,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 829766262}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -329,8 +345,9 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1796360154}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnArmed
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -410,6 +427,23 @@ MonoBehaviour:
   weapon: {fileID: 5006512736381669765}
   hand: {fileID: 7818375050497760743}
   hip: {fileID: 778075684113996927}
+--- !u!114 &1249040172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499319751919849179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb336a5f8c145d684c523af449e8d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spine: {fileID: 8076857169184207067}
+  xSensitivity: 0.5
+  ySensitivity: 0.5
+  xRotation: {x: -30, y: 60}
+  yRotation: {x: -30, y: 30}
 --- !u!1 &570532112682358154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1360,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
